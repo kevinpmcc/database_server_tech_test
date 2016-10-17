@@ -16,23 +16,19 @@ class DatabaseServer < Sinatra::Base
 
   get '/get' do
     keyword = params[:key]
-    return_value = ""
     ObjectSpace.each_object(Something).each { |thing| 
-      #puts "thing.key is" + thing.key
-      #puts "thing.value is" + thing.value
-      #puts "keyword is" + keyword
       if thing.key.to_s == keyword
-        return_value = thing.value
+        return thing.value
       end
     }
-    return_value
   end
 
   def create_things(k, v)
-    thing = Something.new(key: k.to_s, value: v.to_s)
-    @data << thing
+    Something.new(key: k.to_s, value: v.to_s)
   end
+
   # start the server if ruby file executed directly
+  set :port, 4000
   run! if app_file == $0
 end
 

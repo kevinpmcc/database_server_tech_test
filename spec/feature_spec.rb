@@ -6,7 +6,7 @@ get_url = '/get?key=mykey'
 feature 'Accept key and value pair' do
   scenario 'key and value are sent through get request and receive confirmation have been saved' do
     visit set_url
-    expect(page).to have_content('stored key pair value in session')
+    expect(page).to have_content('stored key pair value')
   end
 end
 
