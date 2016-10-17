@@ -4,11 +4,6 @@ class DatabaseServer < Sinatra::Base
 
   enable :sessions
 
-  get '/' do
-    'Hello DatabaseServer!'
-  end
-
-
   get '/set' do
     params.map {|k, v|
       session["#{k}"] = v
@@ -18,9 +13,9 @@ class DatabaseServer < Sinatra::Base
 
 
   get '/get' do
+    passed_key = params[:key]
+    session["#{passed_key}"]
   end
-
-  
 
   # start the server if ruby file executed directly
   run! if app_file == $0
