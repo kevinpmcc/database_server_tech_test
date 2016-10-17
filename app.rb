@@ -9,7 +9,6 @@ class DatabaseServer < Sinatra::Base
 
 
   get '/set' do
-    $array_of_things = []
     params.map {|k,v|
       create_things(k.to_s, v.to_s)
     }
@@ -34,7 +33,7 @@ class DatabaseServer < Sinatra::Base
 
   
   def create_things(k,v)
-    $array_of_things << Something.new(key: k, value: v)
+    Something.new(key: k, value: v)
     
   end
 
