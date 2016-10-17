@@ -3,28 +3,29 @@ require_relative 'something'
 
 class DatabaseServer < Sinatra::Base
 
-  enable :sessions
-
-  @data = []
-
   get '/set' do
-    params.map {|k, v|
-      create_things(k.to_s, v.to_s)
-    }
-    'stored key pair value in session'
+    create_things(params)
+    'stored key pair value'
   end
 
   get '/get' do
     keyword = params[:key]
-    ObjectSpace.each_object(Something).each { |thing| 
-      if thing.key.to_s == keyword
-        return thing.value
-      end
+    find_value(keyword)
+  end
+
+  private
+  def create_things(params)
+    params.map {|k, v| 
+      Something.new(key: k, value: v)
     }
   end
 
-  def create_things(k, v)
-    Something.new(key: k.to_s, value: v.to_s)
+  def find_value(keyword)
+    ObjectSpace.each_object(Something).each { |thing| 
+      if thing.key == keyword
+        return thing.value
+      end
+    }
   end
 
   # start the server if ruby file executed directly
