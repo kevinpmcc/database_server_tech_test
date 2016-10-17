@@ -54,24 +54,18 @@ yesitdoes.
 I then retrieve the initial value by going to get with key value pair of key and
 pleaseletitwork. This returns 'yesitdoes'  
 ![get](https://cloud.githubusercontent.com/assets/15851529/19440534/227be8dc-947a-11e6-8c38-5a53b0492fbf.png)
-Database server tech test
-Today we will practice a tech test to demonstrate your understanding of web technologies. This is an actual tech test that was given to one of our coaches when they applied for a dev role.
-
-Bear in mind that most tech tests do not have a set timeframe. Although we do have a "soft" time limit, imposed mainly by the structure of the week, we are not expecting you to finish within the day - so take your time and focus on writing the best code you can produce.
-
 
 Approach Taken
 -------
 
-Spiking
-
+<b>Spiking</b>  
 Initially I wanted to investigate how the key-value pairs would come through in
 the params. I spiked(no tests) for a while to see what these looked like. They
 came through as a hash {"somekey": "somevalue"} however could not be simply
 stored as they were. I tried out creating new objects using the key and value as
 initilization parameters. This can all be found on the spiking branch. 
 
-Using Sessions
+<b>Using Sessions</b>  
 The simplest way of storing the information seemed to be to use sessions. I
 wrote two feature tests (one to set, one to get) and then set the session key as
 the params key and session value as params value. 
@@ -79,12 +73,14 @@ the params key and session value as params value.
 This solution worked but in terms of extending and bringing in databases and
 writing to files I don't know how much this would help us get there.
 
-Using Objects
+<b>Using Objects</b>  
 I created a Something class (unsure of what these key value pairs actually were)
-which could be created with a key and a value. 
+which could be created with a key and a value.  
 
 I wrote unit tests to make sure this class could be initialized with the values
-and then return them.
+and then return them.  
 
-In my mind I would be able to find things similar to Database ActiveRecord.
+In my mind I would be able to find things similar to Database ActiveRecord.As
+this was not possible I found that I could look through ObjectSpace to find each
+instance of Something object created. 
 
