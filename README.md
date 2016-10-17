@@ -38,9 +38,20 @@ In your browser of choice go to <code>localhost:4000/set?<b>somekey</b>=<b>somev
 To retrieve your value go to <code>localhost:4000/get?key=<b>somekey</b></code>
 
 
-![set](https://cloud.githubusercontent.com/assets/15851529/19440534/227be8dc-947a-11e6-8c38-5a53b0492fbf.png)
 
-![get](https://cloud.githubusercontent.com/assets/15851529/19440536/254fb49e-947a-11e6-9ec1-56c62cb89c8a.png)
+Example
+--------
+
+In the first image I set the initial key value pair as pleaseletitwork and
+yesitdoes.   
+
+
+![set](https://cloud.githubusercontent.com/assets/15851529/19440536/254fb49e-947a-11e6-9ec1-56c62cb89c8a.png)
+
+
+I then retrieve the initial value by going to get with key value pair of key and
+pleaseletitwork. This returns 'yesitdoes'  
+![get](https://cloud.githubusercontent.com/assets/15851529/19440534/227be8dc-947a-11e6-8c38-5a53b0492fbf.png)
 Database server tech test
 Today we will practice a tech test to demonstrate your understanding of web technologies. This is an actual tech test that was given to one of our coaches when they applied for a dev role.
 
