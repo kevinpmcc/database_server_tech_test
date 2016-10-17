@@ -35,8 +35,12 @@ to manually test
 In your browser of choice go to <code>localhost:4000/set?<b>somekey</b>=<b>somevalue</b></code>
 (you can replace the bolded text with whatever you like)
 
-To retrieve your value go to <code>localhost:4000/get?key=<b>somekey</b>
+To retrieve your value go to <code>localhost:4000/get?key=<b>somekey</b></code>
 
+
+![set](https://cloud.githubusercontent.com/assets/15851529/19440534/227be8dc-947a-11e6-8c38-5a53b0492fbf.png)
+
+![get](https://cloud.githubusercontent.com/assets/15851529/19440536/254fb49e-947a-11e6-9ec1-56c62cb89c8a.png)
 Database server tech test
 Today we will practice a tech test to demonstrate your understanding of web technologies. This is an actual tech test that was given to one of our coaches when they applied for a dev role.
 
