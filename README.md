@@ -57,12 +57,32 @@ Today we will practice a tech test to demonstrate your understanding of web tech
 
 Bear in mind that most tech tests do not have a set timeframe. Although we do have a "soft" time limit, imposed mainly by the structure of the week, we are not expecting you to finish within the day - so take your time and focus on writing the best code you can produce.
 
-#The brief
 
-You receive a message from a prospective employer:
+Approach Taken
+-------
 
-"Before your interview, write a program that runs a server that is accessible on http://localhost:4000/. When your server receives a request on http://localhost:4000/set?somekey=somevalue it should store the passed key and value in memory. When it receives a request on http://localhost:4000/get?key=somekey it should return the value stored at somekey.
+Spiking
 
-During your [mock] interview, you will pair on saving the data to a file."
+Initially I wanted to investigate how the key-value pairs would come through in
+the params. I spiked(no tests) for a while to see what these looked like. They
+came through as a hash {"somekey": "somevalue"} however could not be simply
+stored as they were. I tried out creating new objects using the key and value as
+initilization parameters. This can all be found on the spiking branch. 
 
-Create a new git repository and write code to fulfill the brief to the best of your ability. Store the data in memory, not in a database, but bear in mind that you will later need to add a database to this code.
+Using Sessions
+The simplest way of storing the information seemed to be to use sessions. I
+wrote two feature tests (one to set, one to get) and then set the session key as
+the params key and session value as params value. 
+
+This solution worked but in terms of extending and bringing in databases and
+writing to files I don't know how much this would help us get there.
+
+Using Objects
+I created a Something class (unsure of what these key value pairs actually were)
+which could be created with a key and a value. 
+
+I wrote unit tests to make sure this class could be initialized with the values
+and then return them.
+
+In my mind I would be able to find things similar to Database ActiveRecord.
+
