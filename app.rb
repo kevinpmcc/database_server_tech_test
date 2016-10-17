@@ -18,7 +18,6 @@ class DatabaseServer < Sinatra::Base
 
 
   get '/get' do
-    session["#{params[:key]}"]
   end
 
   

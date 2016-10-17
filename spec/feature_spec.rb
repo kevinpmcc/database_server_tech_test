@@ -6,3 +6,11 @@ feature 'Accept key and value pair' do
     expect(page).to have_content('stored key pair value in session')
   end
 end
+
+feature 'Return value after key and value have been added' do
+  scenario 'once key and value have been entered then the value can be retrieved' do
+    visit '/set?mykey=myvalue'
+    visit '/get?key=mykey'
+    expect(page).to have_content('myvalue')
+  end
+end
