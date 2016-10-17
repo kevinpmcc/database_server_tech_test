@@ -4,7 +4,6 @@ class Something
   def initialize(key:, value:)
     @key = key
     @value = value
-    puts "DONE"
   end
 
 end

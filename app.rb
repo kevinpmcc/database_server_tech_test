@@ -3,44 +3,33 @@ require_relative 'something'
 
 class DatabaseServer < Sinatra::Base
 
-  get '/' do
-    'Hello DatabaseServer!'
-  end
-
-
   get '/set' do
-    $array_of_things = []
-    params.map {|k,v|
-      create_things(k.to_s, v.to_s)
-    }
-    "posted"
+    create_things(params)
+    'stored key pair value'
   end
-
 
   get '/get' do
-    return_value = ""
     keyword = params[:key]
-    ObjectSpace.each_object(Something).each { |thing| 
-      puts "thing.key is" + thing.key
-      puts "thing.value is" + thing.value
-      puts "keyword is" + keyword
-          if thing.key.to_s == keyword
-            return_value = thing.value
-          end
-      }
-    puts return_value
-    return_value
+    find_value(keyword)
   end
 
-  
-  def create_things(k,v)
-    $array_of_things << Something.new(key: k, value: v)
-    
+  private
+  def create_things(params)
+    params.map {|k, v| 
+      Something.new(key: k, value: v)
+    }
+  end
+
+  def find_value(keyword)
+    ObjectSpace.each_object(Something).each { |thing| 
+      if thing.key == keyword
+        return thing.value
+      end
+    }
   end
 
   # start the server if ruby file executed directly
+  set :port, 4000
   run! if app_file == $0
 end
-
-
 
